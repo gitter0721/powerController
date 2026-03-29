@@ -10,8 +10,8 @@ USB_ONLINE_NODE="/sys/class/power_supply/usb/online"
 MAX_SIZE=1048576
 LOG_FILE="$MODDIR/bypass.log"
 
-UPPER_LIMIT=95  # 上限：大于等于此值时，开启旁路（停充）
-LOWER_LIMIT=91  # 下限：小于等于此值时，关闭旁路（复充）
+UPPER_LIMIT=91  # 上限：大于等于此值时，开启旁路（停充）
+LOWER_LIMIT=78  # 下限：小于等于此值时，关闭旁路（复充）
 
 BASE_DESC="一加pad2pro专用，可强制开启旁路充电。可以自定义值，刷入后在 /data/adb/modules/oplusPowerController/service.sh 内可修改你想要的值。默认大于等于91%电量进入旁路充电，低于等于78%电量恢复正常充电，处于中间值时等待10秒后重新插入充电器仍可充电。⚠️警告:关闭或卸载模块后需要等待10秒钟生效，未等待进行关机可能导致的问题后果自负⚠️"
 
