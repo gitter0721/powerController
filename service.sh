@@ -11,7 +11,7 @@ MAX_SIZE=1048576
 LOG_FILE="$MODDIR/bypass.log"
 CONFIG_FILE="$MODDIR/config.txt"
 
-BASE_DESC="一加pad2pro专用旁路控制。⚠️请直接修改模块目录下的 config.txt 文件来调整阈值，修改后最迟10秒内自动生效⚠️。关闭或卸载模块需等待10秒恢复正常充电逻辑后果自负。"
+BASE_DESC="一加pad2pro可用(其他o系设备可以刷入测试)，可强制开启旁路充电。自定义值->刷入后在 /data/adb/modules/oplusPowerController/config.txt 内可修改你想要的值,修改后立即生效。默认大于等于91%电量进入旁路充电，低于等于78%电量恢复正常充电"
 
 LAST_STATE=""
 
@@ -39,15 +39,15 @@ echo "=== OPPO/OnePlus 旁路充电控制模块已启动 ===" >> "$LOG_FILE"
 log "系统启动完成，检查节点..."
 
 if [ ! -f "$BYPASS_NODE" ] || [ ! -f "$CAPACITY_NODE" ] || [ ! -f "$USB_ONLINE_NODE" ]; then
-    log "严重错误：设备缺少必需的电源节点！模块将停止运行。"
-    update_prop_desc "❌ 运行失败 (未找到节点)"
+    log "error错误：设备缺少必需的电源节点！模块将停止运行。"
+    update_prop_desc "❌ 该设备无法使用该模块！"
     exit 1
 fi
 
 
 echo 1 > "$BYPASS_NODE"
 log "已执行安全兜底：默认恢复充电能力"
-update_prop_desc "🟢 初始化完成"
+update_prop_desc "🥳 初始化完成"
 
 # ==============================
 # 核心守护进程
