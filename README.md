@@ -55,3 +55,5 @@
 ## ⚖️ 免责声明
 
 本模块涉及底层电源节点的修改。作者已尽可能完善防呆逻辑与安全兜底，但由于不同系统版本和内核差异，仍无法保证在所有环境下均 100% 绝对安全。**使用本模块造成的一切设备损坏、数据丢失或硬件异常，均由使用者自行承担。**
+
+![Downloads](https://img.shields.io/github/downloads/gitter0721/powerController/total)
